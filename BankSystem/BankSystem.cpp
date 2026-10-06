@@ -3,6 +3,7 @@
 #include "clsBankClient.h"
 #include "clsInputValidate.h"
 #include "clsUtil.h"
+#include "clsMainMenuScreen.h"
 
 using namespace std;
 
@@ -288,24 +289,13 @@ void ShowTotalBalances()
 		<< TotalBalances << " (" << clsUtil::NumberToText((int)TotalBalances) << ")\n" << endl;
 }
 
-void  ShowMainMenu()
-{
-	system("cls");
-	cout << "\n\t\t\t\t\t  Main Menu";
-	cout << "\n\t\t\t\t______________________________\n";
-	cout << "\t\t\t\t[1] Show All Clients.\n";
-	cout << "\t\t\t\t[2] Add New Client.\n";
-	cout << "\t\t\t\t[3] Update Client Info.\n";
-	cout << "\t\t\t\t[4] Delete Client.\n";
-	cout << "\t\t\t\t[5] Show Total Balances.\n";
-	cout << "\t\t\t\t[6] Exit.\n";
-	cout << "\t\t\t\t______________________________\n";
-	cout << "\t\t\t\tChoose what do you want to do? [1 to 6]: ";
-}
+ 
 
 int main()
 {
-	ShowTotalBalances();
+	 
+
+	clsMainScreen::ShowMainMenue();
 
 	system("pause>0");
 
