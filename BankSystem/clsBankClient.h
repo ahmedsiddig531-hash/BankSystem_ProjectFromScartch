@@ -80,6 +80,7 @@ private:
     {
         _AddDataLineToFile(_ConverClientObjectToLine(*this));
     }
+
     static void _SaveCleintsDataToFile(vector <clsBankClient> vClients)
     {
 
@@ -167,6 +168,7 @@ public:
     {
         return clsBankClient(enMode::AddNewMode, "", "", "", "", AccountNumber, "", 0);
     }
+
     bool IsEmpty()
     {
         return (_Mode == enMode::EmptyMode);
