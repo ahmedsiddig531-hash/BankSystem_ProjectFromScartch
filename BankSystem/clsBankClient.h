@@ -81,7 +81,7 @@ private:
         _AddDataLineToFile(_ConverClientObjectToLine(*this));
     }
 
-    static void _SaveCleintsDataToFile(vector <clsBankClient> vClients)
+    static void _SaveClientsDataToFile(vector <clsBankClient> vClients)
     {
 
         fstream MyFile;
@@ -124,7 +124,7 @@ private:
 
         }
 
-        _SaveCleintsDataToFile(_vClients);
+        _SaveClientsDataToFile(_vClients);
 
     }
 
@@ -342,7 +342,7 @@ public:
             {
                 C.MarkedForDelete = true;
 
-                _SaveCleintsDataToFile(_vClients);
+                _SaveClientsDataToFile(_vClients);
 
                 *this = _GetEmptyClientObject();
 
@@ -353,7 +353,7 @@ public:
         return false;
     }
 
-    static double TotalBalances()
+    static double GetTotalBalances()
     {
         vector <clsBankClient> vClients = _LoadClientsDataFromFile();
         double TotalBalances = 0;
@@ -363,5 +363,26 @@ public:
         }
         return TotalBalances;
     }
+
+     void Deposit(double Amount)
+    {
+        _AccountBalance += Amount;
+        Save();
+    }
+   bool Withdraw(double Amount)
+     {
+         if (Amount > _AccountBalance)
+         {
+             return false;
+         }
+         else
+         {
+             _AccountBalance -= Amount;
+             Save();
+         }
+          
+     }
+
 };
+
 
