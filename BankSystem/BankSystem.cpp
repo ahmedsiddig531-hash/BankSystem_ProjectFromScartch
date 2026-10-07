@@ -1,12 +1,17 @@
 #include <iostream>
-#include "clsMainMenuScreen.h"
+#include "clsLoginScreen.h"
 using namespace std;
 
 int main()
 {
+	while (true) {
+		
 
+		clsLoginScreen::ShowLoginScreen();
+	}
+	 
 
-	clsMainScreen::ShowMainMenue();
+	//clsMainScreen::ShowMainMenue();
 
 	system("pause>0");
 
