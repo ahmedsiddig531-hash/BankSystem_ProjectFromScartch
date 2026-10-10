@@ -17,6 +17,18 @@ private:
     string _Password;
     int _Permissions;
 
+    string PrepareLoginRecordRegistor(string Seperator = "#//#")
+    {
+        string LoginRecord = "";
+        LoginRecord += clsDate::GetSystemDateTimeString() + Seperator;
+        LoginRecord += _UserName + Seperator;
+        LoginRecord += _Password + Seperator;
+        LoginRecord += to_string(_Permissions);
+
+        return LoginRecord;
+
+ }
+
     bool _MarkedForDelete = false;
 
     static clsUser _ConvertLinetoUserObject(string Line, string Seperator = "#//#")
@@ -354,5 +366,22 @@ public:
         return (Permissions & Permission) == Permission;
     }
 
+    void RegisterLogin()
+    {
+        string stRegisterRecord = PrepareLoginRecordRegistor();
+
+        fstream MyFile;
+        MyFile.open("RegisterLogin.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+            MyFile << stRegisterRecord << endl;
+            MyFile.close();
+        }
+        else
+        {
+            cout << "\nError: Could not open RegisterLogin.txt\n";
+        }
+    }
 };
 
